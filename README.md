@@ -1,5 +1,7 @@
 **A flexible Flutter widget that supports the PNG and SVG images from the network, can cache them. Actually 3 in 1, supports PNG SVG as well as image from local assets**
 
+![Alt text](/Screenshot_1701358352.png)
+
 ## Features
 
 * Supports PNG Network Image with Cache
@@ -16,6 +18,19 @@
 * Easy to manage and flexible to use
 
 ## Basic Setup
+
+```
+    FlexiblePngSvgNetworkWidget(
+              networkErrorPlaceHolderImagePath: placeHolderImagePathLocal,
+              imagePathOrURL: imageURL,
+              isNetworkImage: true | false,
+              height: 50,
+              width: 30,
+              filterQuality: FilterQuality.high,
+              svgLoadRetryLimit: 2,
+                cacheRuleStaleDuration:Duration(days: 100)
+            )
+```
 
 ## Main Widget Signature
 
