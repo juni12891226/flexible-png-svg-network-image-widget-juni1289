@@ -14,3 +14,7 @@
 * Readme updated
 * Performance Improvements
 * Basic Usage Added
+
+## 0.0.4
+
+* Screen shot added

@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const Text("from Assets with error"),
+            const Text("from Assets with error",textAlign: TextAlign.center,),
             const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: "assets/icons/cat.png",
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-            const Text("from Assets with no error"),
+            const Text("from Assets with no error",textAlign: TextAlign.center,),
             const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: "assets/images/cat.png",
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-            const Text("from network for PNG with no error"),
+            const Text("from network for PNG with no error",textAlign: TextAlign.center,),
             FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: pngURL,
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               isNetworkImage: true,
               colorProgressLoaderIndicator: Colors.purple,
             ),
-            const Text("from network for PNG with error"),
+            const Text("from network for PNG with error",textAlign: TextAlign.center,),
             const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL:
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
               isNetworkImage: true,
               colorProgressLoaderIndicator: Colors.purple,
             ),
-            const Text("from network for SVG with no error"),
+            const Text("from network for SVG with no error",textAlign: TextAlign.center,),
             SizedBox(
               height: 100,
               width: 100,
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            const Text("from network for SVG with error"),
+            const Text("from network for SVG with error",textAlign: TextAlign.center,),
             SizedBox(
               height: 100,
               width: 100,
