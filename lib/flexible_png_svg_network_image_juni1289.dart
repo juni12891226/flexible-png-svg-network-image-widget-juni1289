@@ -96,7 +96,10 @@ class FlexiblePngSvgNetworkWidget extends StatelessWidget {
     if (imagePathOrURL.isNotEmpty) {
       if (boxFit != null) {
         if (imagePathOrURL.endsWith(".png")) {
-          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high, fit: boxFit);
+          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high, fit: boxFit,
+              errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+            return errorWidget ?? Image.asset(networkErrorPlaceHolderImagePath, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high);
+          });
         } else if (imagePathOrURL.endsWith(".svg")) {
           return SvgPicture.asset(imagePathOrURL, height: height, width: width, fit: boxFit!, color: colorSVG);
         } else {
@@ -104,7 +107,10 @@ class FlexiblePngSvgNetworkWidget extends StatelessWidget {
         }
       } else {
         if (imagePathOrURL.endsWith(".png")) {
-          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high);
+          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high,
+              errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+            return errorWidget ?? Image.asset(networkErrorPlaceHolderImagePath, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high);
+          });
         } else if (imagePathOrURL.endsWith(".svg")) {
           return SvgPicture.asset(imagePathOrURL, height: height, width: width, color: colorSVG);
         } else {
