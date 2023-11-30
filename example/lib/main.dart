@@ -28,6 +28,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String pngURL="https://openexpoeurope.com/wp-content/uploads/2019/12/flutter-logo-sharing.png";
+  String svgURL="https://raw.githubusercontent.com/dart-lang/site-shared/master/src/_assets/image/flutter/logo/default.svg";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,14 +42,33 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const <Widget>[
+          children:  <Widget>[
+            //from Assets with error
+            const FlexiblePngSvgNetworkWidget(
+              networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
+              imagePathOrURL: "assets/icons/cat.png",
+              height: 50,
+              width: 30,
+              filterQuality: FilterQuality.high,
+            ),
+
             //from Assets with no error
-            FlexiblePngSvgNetworkWidget(
+            const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: "assets/images/cat.png",
               height: 50,
               width: 30,
               filterQuality: FilterQuality.high,
+            ),
+            //from network for PNG
+            FlexiblePngSvgNetworkWidget(
+              networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
+              imagePathOrURL: pngURL,
+              height: 90,
+              width: 60,
+              filterQuality: FilterQuality.high,
+              isNetworkImage: true,
+              colorProgressLoaderIndicator: Colors.purple,
             ),
           ],
         ),
