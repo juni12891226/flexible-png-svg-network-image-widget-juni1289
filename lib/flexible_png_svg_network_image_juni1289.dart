@@ -4,6 +4,11 @@ import 'package:flexible_png_svg_network_image_widget_juni1289/svg_cached_networ
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+///A Flutter widget to load the images from the network or from the local assets
+///It can load the images from the URL for PNG as well as SVG images
+///It decided for the image file extension itself
+///The [isNetworkImage] param decides whether to load the image from the URL or from the local assets
+///Mainly there are 2 image file types can be loaded PNG or SVG
 class FlexiblePngSvgNetworkWidget extends StatelessWidget {
   final String imagePathOrURL;
   final double height;
@@ -64,7 +69,9 @@ class FlexiblePngSvgNetworkWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //check if load from network
     if (isNetworkImage) {
+      //check if the url is for SVG
       if (imagePathOrURL.endsWith(".svg")) {
         return SVGCachedNetworkImageView(
           imagePathOrURL: imagePathOrURL,
@@ -75,6 +82,7 @@ class FlexiblePngSvgNetworkWidget extends StatelessWidget {
           svgLoadRetryLimit: svgLoadRetryLimit,
         );
       } else {
+        //url is for PNG
         return PNGCachedNetworkImageView(
             useOldPngImageOnUrlChange: useOldPngImageOnUrlChange,
             progressIndicatorWidget: progressIndicatorWidget,
@@ -88,31 +96,50 @@ class FlexiblePngSvgNetworkWidget extends StatelessWidget {
             filterQuality: filterQuality);
       }
     } else {
+      //load from assets
       return _getImageFromAssetView();
     }
   }
 
+  ///Load the image from the local assets
   Widget _getImageFromAssetView() {
     if (imagePathOrURL.isNotEmpty) {
       if (boxFit != null) {
         if (imagePathOrURL.endsWith(".png")) {
-          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high, fit: boxFit,
-              errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
-            return errorWidget ?? Image.asset(networkErrorPlaceHolderImagePath, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high);
+          return Image.asset(imagePathOrURL,
+              height: height,
+              width: width,
+              filterQuality: filterQuality ?? FilterQuality.high,
+              fit: boxFit, errorBuilder:
+                  (BuildContext context, Object error, StackTrace? stackTrace) {
+            return errorWidget ??
+                Image.asset(networkErrorPlaceHolderImagePath,
+                    height: height,
+                    width: width,
+                    filterQuality: filterQuality ?? FilterQuality.high);
           });
         } else if (imagePathOrURL.endsWith(".svg")) {
-          return SvgPicture.asset(imagePathOrURL, height: height, width: width, fit: boxFit!, color: colorSVG);
+          return SvgPicture.asset(imagePathOrURL,
+              height: height, width: width, fit: boxFit!, color: colorSVG);
         } else {
           return const EmptyContainerHelperWidget();
         }
       } else {
         if (imagePathOrURL.endsWith(".png")) {
-          return Image.asset(imagePathOrURL, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high,
-              errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
-            return errorWidget ?? Image.asset(networkErrorPlaceHolderImagePath, height: height, width: width, filterQuality: filterQuality ?? FilterQuality.high);
+          return Image.asset(imagePathOrURL,
+              height: height,
+              width: width,
+              filterQuality: filterQuality ?? FilterQuality.high, errorBuilder:
+                  (BuildContext context, Object error, StackTrace? stackTrace) {
+            return errorWidget ??
+                Image.asset(networkErrorPlaceHolderImagePath,
+                    height: height,
+                    width: width,
+                    filterQuality: filterQuality ?? FilterQuality.high);
           });
         } else if (imagePathOrURL.endsWith(".svg")) {
-          return SvgPicture.asset(imagePathOrURL, height: height, width: width, color: colorSVG);
+          return SvgPicture.asset(imagePathOrURL,
+              height: height, width: width, color: colorSVG);
         } else {
           return const EmptyContainerHelperWidget();
         }

@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flexible_png_svg_network_image_widget_juni1289/flexible_png_svg_network_image_juni1289.dart';
 import 'package:flutter/material.dart';
 
+///PNG cached network image
+///To load the PNG images from the URL
+///And cache them on the device storage until the image loader URL gets updated
 class PNGCachedNetworkImageView extends StatelessWidget {
   final String imagePathOrURL;
   final double height;
@@ -48,15 +51,23 @@ class PNGCachedNetworkImageView extends StatelessWidget {
             width: width,
             filterQuality: filterQuality ?? FilterQuality.high,
             fit: boxFit,
-            progressIndicatorBuilder: (BuildContext context, url, downloadProgress) {
+            progressIndicatorBuilder:
+                (BuildContext context, url, downloadProgress) {
               return progressIndicatorWidget ??
-                  SizedBox(height: height, width: width, child: Center(child: CircularProgressIndicator(color: colorProgressLoaderIndicator ?? Colors.blue)));
+                  SizedBox(
+                      height: height,
+                      width: width,
+                      child: Center(
+                          child: CircularProgressIndicator(
+                              color: colorProgressLoaderIndicator ??
+                                  Colors.blue)));
             },
             errorWidget: (BuildContext context, url, error) {
               return errorWidget ??
                   Center(
                       child: FlexiblePngSvgNetworkWidget(
-                          networkErrorPlaceHolderImagePath: networkErrorPlaceHolderImagePath,
+                          networkErrorPlaceHolderImagePath:
+                              networkErrorPlaceHolderImagePath,
                           imagePathOrURL: networkErrorPlaceHolderImagePath,
                           height: height,
                           width: width,
@@ -67,15 +78,23 @@ class PNGCachedNetworkImageView extends StatelessWidget {
             height: height,
             width: width,
             filterQuality: filterQuality ?? FilterQuality.high,
-            progressIndicatorBuilder: (BuildContext context, url, downloadProgress) {
+            progressIndicatorBuilder:
+                (BuildContext context, url, downloadProgress) {
               return progressIndicatorWidget ??
-                  SizedBox(height: height, width: width, child: Center(child: CircularProgressIndicator(color: colorProgressLoaderIndicator ?? Colors.blue)));
+                  SizedBox(
+                      height: height,
+                      width: width,
+                      child: Center(
+                          child: CircularProgressIndicator(
+                              color: colorProgressLoaderIndicator ??
+                                  Colors.blue)));
             },
             errorWidget: (BuildContext context, url, error) {
               return errorWidget ??
                   Center(
                       child: FlexiblePngSvgNetworkWidget(
-                          networkErrorPlaceHolderImagePath: networkErrorPlaceHolderImagePath,
+                          networkErrorPlaceHolderImagePath:
+                              networkErrorPlaceHolderImagePath,
                           imagePathOrURL: networkErrorPlaceHolderImagePath,
                           height: height,
                           width: width,

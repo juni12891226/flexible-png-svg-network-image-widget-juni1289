@@ -28,8 +28,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String pngURL="https://openexpoeurope.com/wp-content/uploads/2019/12/flutter-logo-sharing.png";
-  String svgURL="https://raw.githubusercontent.com/dart-lang/site-shared/master/src/_assets/image/flutter/logo/default.svg";
+  String pngURL =
+      "https://openexpoeurope.com/wp-content/uploads/2019/12/flutter-logo-sharing.png";
+  String svgURL =
+      "https://raw.githubusercontent.com/dart-lang/site-shared/master/src/_assets/image/flutter/logo/default.svg";
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children:  <Widget>[
+          children: <Widget>[
             //from Assets with error
             const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
@@ -51,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-
             //from Assets with no error
             const FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-            //from network for PNG
+            //from network for PNG with no error
             FlexiblePngSvgNetworkWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: pngURL,
@@ -69,6 +70,51 @@ class _MyHomePageState extends State<MyHomePage> {
               filterQuality: FilterQuality.high,
               isNetworkImage: true,
               colorProgressLoaderIndicator: Colors.purple,
+            ),
+            //from network for PNG with error
+            const FlexiblePngSvgNetworkWidget(
+              networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
+              imagePathOrURL:
+                  "https://openexpoeurope.com/wp-content/uploads/2019/12.png",
+              height: 90,
+              width: 60,
+              filterQuality: FilterQuality.high,
+              isNetworkImage: true,
+              colorProgressLoaderIndicator: Colors.purple,
+            ),
+            //from network for SVG with no error
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                child: FlexiblePngSvgNetworkWidget(
+                  networkErrorPlaceHolderImagePath:
+                      "assets/images/placeholder.png",
+                  imagePathOrURL: svgURL,
+                  height: 90,
+                  width: 60,
+                  filterQuality: FilterQuality.high,
+                  isNetworkImage: true,
+                  colorProgressLoaderIndicator: Colors.purple,
+                ),
+              ),
+            ),
+            //from network for SVG with error
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                child: FlexiblePngSvgNetworkWidget(
+                  networkErrorPlaceHolderImagePath:
+                      "assets/images/placeholder.png",
+                  imagePathOrURL: "${svgURL}sdkjk",
+                  height: 90,
+                  width: 60,
+                  filterQuality: FilterQuality.high,
+                  isNetworkImage: true,
+                  colorProgressLoaderIndicator: Colors.purple,
+                ),
+              ),
             ),
           ],
         ),

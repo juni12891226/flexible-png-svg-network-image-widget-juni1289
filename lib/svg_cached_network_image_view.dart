@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_networkimage_2/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+///SVG cached network image
+///To load the SVG images from the URL
+///And cache them on the device storage until the image loader URL gets updated
+///The [cacheRuleStaleDuration] can be provided for cache stale period
 class SVGCachedNetworkImageView extends StatelessWidget {
   final String imagePathOrURL;
   final int? svgLoadRetryLimit;
@@ -33,12 +37,20 @@ class SVGCachedNetworkImageView extends StatelessWidget {
     return SvgPicture(AdvancedNetworkSvg(
         imagePathOrURL,
         (theme) => (bytes, colorFilter, key) {
-              return svg.svgPictureDecoder(bytes ?? Uint8List.fromList(const []), false, colorFilter, key, theme: theme);
+              return svg.svgPictureDecoder(
+                  bytes ?? Uint8List.fromList(const []),
+                  false,
+                  colorFilter,
+                  key,
+                  theme: theme);
             },
         retryLimit: svgLoadRetryLimit ?? 1,
         timeoutDuration: timeOutDuration ?? const Duration(seconds: 30),
         useDiskCache: useDiskCacheForSVG ?? true,
-        cacheRule: CacheRule(maxAge: cacheRuleStaleDuration ?? const Duration(days: 500), storeDirectory: StoreDirectoryType.temporary), loadFailedCallback: () {
+        cacheRule: CacheRule(
+            maxAge: cacheRuleStaleDuration ?? const Duration(days: 500),
+            storeDirectory: StoreDirectoryType.temporary),
+        loadFailedCallback: () {
       if (onSVGLoadFailedCallback != null) {
         onSVGLoadFailedCallback!();
       }
