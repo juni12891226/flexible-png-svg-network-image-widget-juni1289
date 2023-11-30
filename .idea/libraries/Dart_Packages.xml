@@ -104,7 +104,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/flutter/packages/flutter/lib" />
-              <option value="$USER_HOME$/fvm/versions/versions/3.7.12/packages/flutter/lib" />
             </list>
           </value>
         </entry>
@@ -147,7 +146,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/flutter/packages/flutter_test/lib" />
-              <option value="$USER_HOME$/fvm/versions/versions/3.7.12/packages/flutter_test/lib" />
             </list>
           </value>
         </entry>
@@ -309,7 +307,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/flutter/bin/cache/pkg/sky_engine/lib" />
-              <option value="$USER_HOME$/fvm/versions/versions/3.7.12/bin/cache/pkg/sky_engine/lib" />
             </list>
           </value>
         </entry>
@@ -488,9 +485,6 @@
       <root url="file://$USER_HOME$/flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://$USER_HOME$/flutter/packages/flutter/lib" />
       <root url="file://$USER_HOME$/flutter/packages/flutter_test/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/versions/3.7.12/bin/cache/pkg/sky_engine/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/versions/3.7.12/packages/flutter/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/versions/3.7.12/packages/flutter_test/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
