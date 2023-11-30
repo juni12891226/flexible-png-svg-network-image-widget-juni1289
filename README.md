@@ -1,7 +1,7 @@
 **A flexible Flutter widget that supports the PNG and SVG images from the network, can cache them. Actually 3 in 1, supports PNG SVG as well as image from local assets**
 
 <div align="center">
-    <img src="/Screenshot_1701358352.png" width="300px" height="500px">  
+    <img src="/Screenshot_1701358352.png" width="300px" height="600px">  
 </div>
 
 ## Features
