@@ -22,7 +22,7 @@
 ## Basic Setup
 
 ```
-    FlexiblePngSvgNetworkWidget(
+    FlexiblePngSvgNetworkImageWidget(
               networkErrorPlaceHolderImagePath: placeHolderImagePathLocal,
               imagePathOrURL: imageURL,
               isNetworkImage: true | false,
@@ -54,7 +54,7 @@
     ///[cacheRuleStaleDuration] is optional | for how much time the images needs to be caches | default is 500 days
     ///[onSVGLoadFailedCallback] is optional
     ///[useOldPngImageOnUrlChange] in order to use the old image on new URL default is false
-    const FlexiblePngSvgNetworkWidget(
+    const FlexiblePngSvgNetworkImageWidget(
         {Key? key,
         required this.networkErrorPlaceHolderImagePath,
         required this.imagePathOrURL,

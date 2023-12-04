@@ -18,3 +18,10 @@
 ## 0.0.4
 
 * Screen shot added
+
+## 0.0.5
+
+* SVG network image widget added with new callback
+* Documentation added
+* Main Widget Class name refactored
+* Performance Improvements

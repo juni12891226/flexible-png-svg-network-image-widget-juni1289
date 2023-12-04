@@ -28,10 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String pngURL =
-      "https://openexpoeurope.com/wp-content/uploads/2019/12/flutter-logo-sharing.png";
-  String svgURL =
-      "https://raw.githubusercontent.com/dart-lang/site-shared/master/src/_assets/image/flutter/logo/default.svg";
+  String pngURL = "https://openexpoeurope.com/wp-content/uploads/2019/12/flutter-logo-sharing.png";
+  String svgURL = "https://raw.githubusercontent.com/dart-lang/site-shared/master/src/_assets/image/flutter/logo/default.svg";
 
   @override
   Widget build(BuildContext context) {
@@ -45,24 +43,33 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const Text("from Assets with error",textAlign: TextAlign.center,),
-            const FlexiblePngSvgNetworkWidget(
+            const Text(
+              "from Assets with error",
+              textAlign: TextAlign.center,
+            ),
+            const FlexiblePngSvgNetworkImageWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: "assets/icons/cat.png",
               height: 50,
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-            const Text("from Assets with no error",textAlign: TextAlign.center,),
-            const FlexiblePngSvgNetworkWidget(
+            const Text(
+              "from Assets with no error",
+              textAlign: TextAlign.center,
+            ),
+            const FlexiblePngSvgNetworkImageWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: "assets/images/cat.png",
               height: 50,
               width: 30,
               filterQuality: FilterQuality.high,
             ),
-            const Text("from network for PNG with no error",textAlign: TextAlign.center,),
-            FlexiblePngSvgNetworkWidget(
+            const Text(
+              "from network for PNG with no error",
+              textAlign: TextAlign.center,
+            ),
+            FlexiblePngSvgNetworkImageWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
               imagePathOrURL: pngURL,
               height: 90,
@@ -71,25 +78,29 @@ class _MyHomePageState extends State<MyHomePage> {
               isNetworkImage: true,
               colorProgressLoaderIndicator: Colors.purple,
             ),
-            const Text("from network for PNG with error",textAlign: TextAlign.center,),
-            const FlexiblePngSvgNetworkWidget(
+            const Text(
+              "from network for PNG with error",
+              textAlign: TextAlign.center,
+            ),
+            const FlexiblePngSvgNetworkImageWidget(
               networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
-              imagePathOrURL:
-                  "https://openexpoeurope.com/wp-content/uploads/2019/12.png",
+              imagePathOrURL: "https://openexpoeurope.com/wp-content/uploads/2019/12.png",
               height: 90,
               width: 60,
               filterQuality: FilterQuality.high,
               isNetworkImage: true,
               colorProgressLoaderIndicator: Colors.purple,
             ),
-            const Text("from network for SVG with no error",textAlign: TextAlign.center,),
+            const Text(
+              "from network for SVG with no error",
+              textAlign: TextAlign.center,
+            ),
             SizedBox(
               height: 100,
               width: 100,
               child: Center(
-                child: FlexiblePngSvgNetworkWidget(
-                  networkErrorPlaceHolderImagePath:
-                      "assets/images/placeholder.png",
+                child: FlexiblePngSvgNetworkImageWidget(
+                  networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
                   imagePathOrURL: svgURL,
                   height: 90,
                   width: 60,
@@ -99,14 +110,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            const Text("from network for SVG with error",textAlign: TextAlign.center,),
+            const Text(
+              "from network for SVG with error",
+              textAlign: TextAlign.center,
+            ),
             SizedBox(
               height: 100,
               width: 100,
               child: Center(
-                child: FlexiblePngSvgNetworkWidget(
-                  networkErrorPlaceHolderImagePath:
-                      "assets/images/placeholder.png",
+                child: FlexiblePngSvgNetworkImageWidget(
+                  networkErrorPlaceHolderImagePath: "assets/images/placeholder.png",
                   imagePathOrURL: "${svgURL}sdkjk",
                   height: 90,
                   width: 60,

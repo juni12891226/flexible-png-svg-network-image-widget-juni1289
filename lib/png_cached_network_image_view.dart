@@ -65,7 +65,7 @@ class PNGCachedNetworkImageView extends StatelessWidget {
             errorWidget: (BuildContext context, url, error) {
               return errorWidget ??
                   Center(
-                      child: FlexiblePngSvgNetworkWidget(
+                      child: FlexiblePngSvgNetworkImageWidget(
                           networkErrorPlaceHolderImagePath:
                               networkErrorPlaceHolderImagePath,
                           imagePathOrURL: networkErrorPlaceHolderImagePath,
@@ -92,7 +92,7 @@ class PNGCachedNetworkImageView extends StatelessWidget {
             errorWidget: (BuildContext context, url, error) {
               return errorWidget ??
                   Center(
-                      child: FlexiblePngSvgNetworkWidget(
+                      child: FlexiblePngSvgNetworkImageWidget(
                           networkErrorPlaceHolderImagePath:
                               networkErrorPlaceHolderImagePath,
                           imagePathOrURL: networkErrorPlaceHolderImagePath,
